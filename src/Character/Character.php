@@ -61,18 +61,18 @@ class Character
 
   public function display()
   {
-    echo "Имя: " . $this->name . " " . "Здоровье: " . $this->health . PHP_EOL;
+    echo "Имя: " . $this->name . " " . "Здоровье: " . $this->health;
   }
 
   public function move()
   {
-    echo $this->name . " Я иду!" . PHP_EOL;
+    echo $this->name . " Я иду!";
   }
 
   public function fight(Character $opponent)
   {
     $damage = $this->weapon->getDamage();
-    echo $this->weapon->useWeapon() . "-" . $damage . " HP" . PHP_EOL;
+    echo $this->weapon->useWeapon() . "-" . $damage . " HP";
     $opponent->reduceHealth($damage);
   }
 

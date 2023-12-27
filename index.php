@@ -16,5 +16,5 @@ $knight = new Knight();
 $knight2 = new Knight();
 
 
-$game = new Arena($knight2, $knight);
+$game = new Arena($king, $knight);
 $game->start();

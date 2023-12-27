@@ -12,7 +12,7 @@ class Knife implements WeaponBehavior
 
   public function useWeapon()
   {
-    echo "Бьет ножом!" . PHP_EOL;
+    echo "Бьет ножом!";
   }
 
   public function getDamage()

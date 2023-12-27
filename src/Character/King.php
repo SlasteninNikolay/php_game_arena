@@ -11,6 +11,6 @@ class King extends Character
 
   public function display()
   {
-    echo "Имя: Король " . $this->name . " " . "Здоровье: " . $this->health . PHP_EOL;
+    echo "Имя: Король " . $this->name . " " . "Здоровье: " . $this->health;
   }
 }

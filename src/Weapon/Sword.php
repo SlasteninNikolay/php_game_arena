@@ -12,7 +12,7 @@ class Sword implements WeaponBehavior
 
   public function useWeapon()
   {
-    echo "Бьет мечом!" . PHP_EOL;
+    echo "Бьет мечом!";
   }
 
   public function getDamage()
