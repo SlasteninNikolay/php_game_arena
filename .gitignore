@@ -1,0 +1,22 @@
+# Игнорировать системные файлы
+*.log
+*.cache
+*.DS_Store
+
+# Игнорировать файлы IDE
+.idea/
+.vscode/
+
+# Игнорировать зависимости
+/vendor/
+/node_modules/
+
+# Игнорировать файлы PHP
+*.php~
+composer.lock
+composer.phar
+composer.json
+
+# Игнорировать файлы JavaScript
+*.js.map
+package-lock.json
