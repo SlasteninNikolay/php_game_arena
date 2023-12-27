@@ -51,6 +51,14 @@ class Character
     $this->weapon = $weapon;
   }
 
+  public function reduceHealth($amount)
+  {
+    $this->health -= $amount;
+    if ($this->health < 0) {
+      $this->health = 0;
+    }
+  }
+
   public function display()
   {
     echo "Имя: " . $this->name . " " . "Здоровье: " . $this->health . PHP_EOL;
@@ -61,9 +69,11 @@ class Character
     echo $this->name . " Я иду!" . PHP_EOL;
   }
 
-  public function fight()
+  public function fight(Character $opponent)
   {
-    echo $this->weapon->useWeapon() . "-" . $this->weapon->getDamage() . " HP" . PHP_EOL;
+    $damage = $this->weapon->getDamage();
+    echo $this->weapon->useWeapon() . "-" . $damage . " HP" . PHP_EOL;
+    $opponent->reduceHealth($damage);
   }
 
 

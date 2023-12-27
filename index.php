@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use Arena\Arena;
 use Character\Character;
 use Character\King;
 use Character\Knight;
@@ -10,16 +11,10 @@ use Weapon\Knife;
 use Weapon\Sword;
 
 $king = new King();
-
-$king->setWeapon(new Knife());
-
-$king->display();
-$king->fight();
-
+$king->setWeapon(new Knife);
 $knight = new Knight();
+$knight2 = new Knight();
 
-$knight->setWeapon(new Sword());
 
-$knight->display();
-$knight->move();
-$knight->fight();
+$game = new Arena($knight2, $knight);
+$game->start();
