@@ -19,5 +19,5 @@ function start_game()
   $knight = new Knight();
 
   $game = new Arena($king, $knight);
-  $game->test();
+  $game->init();
 }

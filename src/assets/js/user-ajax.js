@@ -22,7 +22,15 @@ function sendAjaxRequest(action, data = {}, ajaxUrl = 'index.php') {
 }
 
 const startGameRequest = () => {
-  sendAjaxRequest('start');
+  var source = new EventSource('index.php?action=start');
+
+  source.onmessage = function (event) {
+    if (event.data === '[DONE]') {
+      source.close();
+    } else {
+      document.getElementById('arena').innerHTML += event.data + '<br>';
+    }
+  };
 };
 
 startButton.addEventListener('click', startGameRequest);
