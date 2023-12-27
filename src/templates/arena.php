@@ -1,1 +1,3 @@
-<div class="arena"></div>
+<div class="arena">
+  <button class="button" id="startGame">Старт</button>
+</div>

@@ -16,6 +16,7 @@ use Weapon\Sword;
 define('ROOTPATH', __DIR__);
 
 require_once ROOTPATH . '/src/functions/helpers.php';
+require_once ROOTPATH . '/src/functions/actions.php';
 
 $title = "Арена";
 

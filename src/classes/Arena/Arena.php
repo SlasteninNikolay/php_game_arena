@@ -20,9 +20,11 @@ class Arena
     $this->battle();
   }
 
-  public function render()
+  public function test()
   {
-
+    $result['success'] = true;
+    $result['message'] = "Goooddddd";
+    die(json_encode($result));
   }
 
   private function battle()
