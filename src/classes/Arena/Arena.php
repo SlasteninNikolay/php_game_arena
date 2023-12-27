@@ -18,7 +18,7 @@ class Arena
     $this->battle();
   }
 
-  public function render($data)
+  public function send_data($data)
   {
 
     header('Content-type: text/event-stream');
@@ -38,11 +38,11 @@ class Arena
     while (true) {
 
       $this->player_one->fight($this->player_two);
-      $this->render($this->player_one->health);
+      $this->send_data($this->player_one->health);
       $this->checkHealth();
       sleep(3);
       $this->player_two->fight($this->player_one);
-      $this->render($this->player_two->health);
+      $this->send_data($this->player_two->health);
       $this->checkHealth();
       sleep(3);
 
@@ -57,20 +57,20 @@ class Arena
   private function checkHealth()
   {
     if ($this->player_one->health <= 0) {
-      $this->render('Победу одержал ' . $this->player_two->name);
-      $this->render('[DONE]');
+      $this->send_data('Победу одержал ' . $this->player_two->name);
+      $this->send_data('[DONE]');
       exit;
     }
 
     if ($this->player_two->health <= 0) {
-      $this->render('Победу одержал ' . $this->player_one->name);
-      $this->render('[DONE]');
+      $this->send_data('Победу одержал ' . $this->player_one->name);
+      $this->send_data('[DONE]');
       exit;
     }
 
     if ($this->player_one->health <= 0 && $this->player_two->health <= 0) {
-      $this->render('Оба мертвы!');
-      $this->render('[DONE]');
+      $this->send_data('Оба мертвы!');
+      $this->send_data('[DONE]');
       exit;
     }
   }
