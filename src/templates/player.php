@@ -1,0 +1,1 @@
+<div class="player"><img src="src/assets/images/knight/Knight_01__DIE_000.png" id='player-one'></div>

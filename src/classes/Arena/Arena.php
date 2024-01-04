@@ -1,6 +1,13 @@
 <?php
 namespace Arena;
 
+use Character\Character;
+use Character\King;
+use Character\Knight;
+use Weapon\WeaponBehavior;
+use Weapon\Knife;
+use Weapon\Sword;
+
 class Arena
 {
   public $name;
@@ -20,11 +27,10 @@ class Arena
 
   public function send_data($data)
   {
-
     header('Content-type: text/event-stream');
     header('Cache-Control: no-cache');
 
-    echo "data: {$data}\n\n";
+    echo "data: " . json_encode($data) . "\n\n";
     while (ob_get_level() > 0) {
       ob_end_flush();
     }
@@ -38,13 +44,13 @@ class Arena
     while (true) {
 
       $this->player_one->fight($this->player_two);
-      $this->send_data($this->player_one->health);
+      $this->send_data(array("player" => $this->player_one->name, "hp" => $this->player_one->health, "action" => "hit"));
       $this->checkHealth();
-      sleep(3);
+      sleep(1);
       $this->player_two->fight($this->player_one);
-      $this->send_data($this->player_two->health);
+      $this->send_data(array("player" => $this->player_two->name, "hp" => $this->player_two->health, "action" => "hit"));
       $this->checkHealth();
-      sleep(3);
+      sleep(1);
 
       if (connection_aborted()) {
         break;
@@ -57,23 +63,19 @@ class Arena
   private function checkHealth()
   {
     if ($this->player_one->health <= 0) {
-      $this->send_data('Победу одержал ' . $this->player_two->name);
-      $this->send_data('[DONE]');
+      $this->send_data(array("player" => $this->player_one->name, "action" => "win"));
       exit;
     }
 
     if ($this->player_two->health <= 0) {
-      $this->send_data('Победу одержал ' . $this->player_one->name);
-      $this->send_data('[DONE]');
+      $this->send_data(array("player" => $this->player_two->name, "action" => "win"));
       exit;
     }
 
     if ($this->player_one->health <= 0 && $this->player_two->health <= 0) {
-      $this->send_data('Оба мертвы!');
-      $this->send_data('[DONE]');
+      $this->send_data(array("action" => "draw"));
       exit;
     }
   }
-
 
 }

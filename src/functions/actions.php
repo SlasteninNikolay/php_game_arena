@@ -17,7 +17,6 @@ function start_game()
 {
   $king = new King();
   $knight = new Knight();
-
   $game = new Arena($king, $knight);
   $game->init();
 }

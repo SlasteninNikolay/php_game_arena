@@ -20,7 +20,9 @@ require_once ROOTPATH . '/src/functions/actions.php';
 
 $title = "Арена";
 
-$page_content = include_template("arena.php", []);
+$player_one = include_template("player.php", []);
+
+$page_content = include_template("arena.php", ["player_one" => $player_one]);
 
 $layout_content = include_template("layout.php", ["content" => $page_content, 'title' => $title,]);
 

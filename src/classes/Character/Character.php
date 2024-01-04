@@ -20,26 +20,26 @@ class Character
   private function random_name()
   {
     $name_arr = [
-      "Артур",
-      "Ланселот",
-      "Гавейн",
-      "Персиваль",
-      "Тристан",
-      "Бедивер",
-      "Галагад",
-      "Мордред",
-      "Утер",
-      "Мерлин",
-      "Пеллинор",
-      "Игерн",
-      "Моргана",
-      "Гвиневра",
-      "Эккалон",
-      "Кай",
-      "Бран",
-      "Бранвен",
-      "Ритон",
-      "Талиесин"
+      "Arthur",
+      "Lancelot",
+      "Gawain",
+      "Percival",
+      "Tristan",
+      "Bedivere",
+      "Galahad",
+      "Mordred",
+      "Uther",
+      "Merlin",
+      "Pellinore",
+      "Igraine",
+      "Morgana",
+      "Guinevere",
+      "Excalibur",
+      "Kay",
+      "Bran",
+      "Branwen",
+      "Riton",
+      "Taliesin"
     ];
 
     $rand_index = random_int(0, count($name_arr) - 1);
